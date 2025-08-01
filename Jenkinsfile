@@ -13,13 +13,7 @@ pipeline {
                  sh ("terraform init -reconfigure") 
              }
          }
-        
-        stage ("terraform Plan") {
-            steps {
-                sh ("terraform plan") 
-            }
-        }
-        
+
         stage("Terraform Plan with lock=false") {
               steps {
         sh 'terraform plan -lock=false'
