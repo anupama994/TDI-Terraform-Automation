@@ -19,7 +19,13 @@ pipeline {
                 sh ("terraform plan") 
             }
         }
-
+        
+        stage("Terraform Plan with lock=false") {
+              steps {
+        sh 'terraform plan -lock=false'
+            }
+        }
+        
         stage ("Action") {
             steps {
                 echo "Terraform action is --> ${action}"
